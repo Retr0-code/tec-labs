@@ -28,31 +28,43 @@ print("3.3 I_mA: ", I_mA, "\n\n")
 
 #2nd point
 #2.1
-
-print("R_l: Z*_out =", round(100*(1/0.56)*m.cos(m.radians(50))-100, 3), "+ j", round(100*(1/0.56)*m.sin(m.radians(50)), 3))
+U_c = 0.56
+phi_1 = 50
+print("R_l: Z*_out =", round(R * (1 / U_c) * m.cos(m.radians(phi_1)) - R, 3), "+ j", round(R * (1 / U_c) * m.sin(m.radians(phi_1)), 3))
 print("R_l = 14.78, X_l = 136.8")
 
-print("G_c: Z*_out =", round(100*(1/0.56)*m.cos(m.radians(-50))-100, 3), "+ j", round(100*(1/0.56)*m.sin(m.radians(-50)), 3))
-print("G_c = 1/R_in => G_c =", round(1/14.78, 2), "X_c = 136.8")
+phi_2 = -50
+print("G_c: Z*_out =", round(R * (1 / U_c) * m.cos(m.radians(phi_2)) - R, 3), "+ j", round(R * (1 / U_c) * m.sin(m.radians(phi_2)), 3))
+print("G_c = 1/R_in => G_c =", round(1 / 14.78, 2), "X_c = 136.8")
 #2.2
 
-print("Добротность катушки Q_l = X_l/R_l => Q_l =", round(136.8/14.78,2))
-print("Добротность конденсатора Q_c = X_c*R_c => Q_c =", round(136.8*0.007,2), "\n\n")
+print("Добротность катушки Q_l = X_l/R_l => Q_l =", round(136.8 / 14.78,2))
+print("Добротность конденсатора Q_c = X_c*R_c => Q_c =", round(136.8 * 0.007,2), "\n\n")
 
 #3rd point
 #3.1
 
-w = -50
+# RC
+freq = 18.2 * 10**3
+w = freq * m.pi / 2
 print("RC цепь")
-print("R_10 = 100 Om, пусть C = C_1 = 47 nF")
-print("ФЧХ = fi(w) = -arctg(wRC) => fi(w) =", ( -1 * m.atan( m.radians(w * R * C))))
-print("АЧХ = K(w) = 1 / sqr( 1 + (wRC)**2) => K(w) =", 1/m.sqrt(1 + (w*R*C)**2))
+print(f"R_10 = {R} Om, пусть C = C_1 = {C} F")
+print("ФЧХ = fi(w) = -arctg(wRC) => fi(w) =", (-1 * m.atan( m.radians(w * R * C))))
+print("АЧХ = K(w) = 1 / sqr( 1 + (wRC)**2) => K(w) =", 1 / m.sqrt(1 + (w * R * C)**2))
 
-w = 50
+# RL
+freq = 2.9 * 10**3
+w = freq * m.pi / 2
 print("RL цепь")
-print("R_10 = 100 Om, пусть L = L_1 = 10 мГн")
-print("ФЧХ = fi(w) = arctg(wL/R) => fi(w) =",  m.atan( (m.radians(w*L/R)) ))
-print("АЧХ = K(w) = R * sqr( 1 + (wL/R)**2) => K(w) =", R * m.sqrt(1 + (w*L/R)**2))
+print(f"R_10 = {R} Om, пусть L = L_1 = {L} Гн")
+print("ФЧХ = fi(w) = arctg(wL/R) => fi(w) =",  m.atan((m.radians(w * L / R))))
+print("АЧХ = K(w) = R * sqr( 1 + (wL/R)**2) => K(w) =", R * m.sqrt(1 + (w * L / R)**2))
 
 # 4
-
+I_m40 = 0.0056 / 10**3
+U_out_m40 = 0.56
+I_p40 = 0.0053 / 10**3
+U_out_p40 = 0.53
+freq_m40 = 6.2 * 10**3
+freq_p40 = 6.2 * 10**3
+print("АЧХ = K(w) = 1 / sqr( 1 + (wRC)**2) => K(w) =", 1 / m.sqrt(1 + (w * R * C)**2))
