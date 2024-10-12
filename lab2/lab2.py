@@ -66,7 +66,6 @@ U_RLCout = {
     70: 0.26,
     80: 0.16
 }
-
 I_RLC_mA = Amperage(U_RLCout)
 print("3.3 I_mA: ", I_RLC_mA, "\n")
 
@@ -98,7 +97,7 @@ print(f"Добротность конденсатора Q_c = X_c * G_c => Q_c =
 
 # RL
 freq = 2.9 * 10**3
-w = freq * m.pi / 2
+w = freq * m.pi * 2
 print("RL цепь")
 print(f"R_10 = {R} Om, пусть L = L_1 = {L} Гн")
 print("ФЧХ = fi(w) = arctg(wL/R) => fi(w) =",  m.atan((m.radians(w * L / R))))
@@ -106,7 +105,7 @@ print("АЧХ = K(w) = R * sqr(1 + (wL/R)**2) => K(w) =", R * m.sqrt(1 + (w * L 
 
 # RC
 freq = 18.2 * 10**3
-w = freq * m.pi / 2
+w = freq * m.pi * 2
 print("RC цепь")
 print(f"R_10 = {R} Om, пусть C = C_1 = {C} F")
 print("ФЧХ = fi(w) = -arctg(wRC) => fi(w) =", (- m.atan(m.radians(w * R * C))))
