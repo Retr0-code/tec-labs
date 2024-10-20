@@ -14,4 +14,4 @@
 
 После этих вычислений получим следующие графики:
 
-![Потенциальные диаграммы](http://url/to/img.png)
+![Потенциальные диаграммы](https://raw.githubusercontent.com/Retr0-code/tec-labs/refs/heads/lab1/lab1/PotentialDiagrams.jpeg)
