@@ -49,6 +49,7 @@ R_c.append(R_c[2] + Rs[1])
 R_c.append(R_c[3])
 R_c.append(R_c[4] + Rs[2])
 R_c.append(R_c[5])
+print(f'Сопротивления в контуре abcdefa: {R_c}')
 
 add_plot(axes_abcdefa, 'Потенциальная диаграмма контура abcdefa', phi_abcdefa, R_c)
 
@@ -59,6 +60,7 @@ R_c = [0, Rs[3]]
 R_c.append(R_c[1] + Rs[5])
 R_c.append(R_c[2] + Rs[2])
 R_c.append(R_c[3] + Rs[4])
+print(f'Сопротивления в контуре bcefb: {R_c}')
 
 add_plot(axes_bcefb, 'Потенциальная диаграмма контура bcefb', phi_bcefb, R_c)
 
