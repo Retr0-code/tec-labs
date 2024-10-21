@@ -36,7 +36,7 @@ gs = gridspec.GridSpec(1, 2, figure=figure)
 def add_plot(axes, title, phi_array, R_array):
     axes.plot(R_array, phi_array)
     axes.set_xlabel('R, Ом')
-    axes.set_ylabel('Phi, Кл')
+    axes.set_ylabel('Phi, В')
     axes.grid()
     axes.set_title(title)
 
