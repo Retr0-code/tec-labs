@@ -15,8 +15,8 @@ def Amperage (Us : dict) -> dict:
 
 def Complex_char_chain (f, R, L, C):
 	L_part = 2 * m.pi * f * L
-	C_part = 2 * m.pi * f * C
-	return R / (R + complex(0, L_part) + 1 / complex(0, C_part))
+	C_part = -1 / (2 * m.pi * f * C)
+	return R / (R + complex(0, L_part) + complex(0, C_part))
 
 def Module_complex (num):
 	return m.sqrt(num.real**2 + num.imag**2)
