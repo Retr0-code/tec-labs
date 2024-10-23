@@ -13,6 +13,18 @@ def Amperage (Us : dict) -> dict:
 
     return Is
 
+def Complex_char_chain (f, R, L, C):
+	L_part = 2 * m.pi * f * L
+	C_part = 2 * m.pi * f * C
+	return R / (R + complex(0, L_part) + 1 / complex(0, C_part))
+
+def Module_complex (num):
+	return m.sqrt(num.real**2 + num.imag**2)
+
+def Argument_complex (num):
+	return m.atan(num.imag / num.real)
+
+
 #1st point
 #1.3
 U_RLout = {
@@ -114,8 +126,34 @@ print("АЧХ = K(w) = 1 / sqr(1 + (wRC)**2) => K(w) =", 1 / m.sqrt(1 + (w * R *
 # 4
 I_m40 = 0.0056 / 10**3
 U_out_m40 = 0.56
+freq_m40 = 6.2 * 10**3
+
+
 I_p40 = 0.0053 / 10**3
 U_out_p40 = 0.53
-freq_m40 = 6.2 * 10**3
-freq_p40 = 6.2 * 10**3
-print("АЧХ = K(w) = 1 / sqr( 1 + (wRC)**2) => K(w) =", 1 / m.sqrt(1 + (w * R * C)**2))
+freq_p40 = 8.8 * 10**3
+
+# RLC
+print("\n\n\n")
+print("U1 - внешнее воздействие, U2 - отклик")
+print("комплексночастотная характеристика цепи или же частотный коэффициент передачи - отношение комплексно выходного сигнала к комплексно входному: H(jw) = U2/U1")
+print("H(jw) = H(w) * e**(j * phi) = H1(w) + jH2(w), где H1 - действительная часть, H2 - мнимая\n")
+print("Общее сопротивление цепи Z(f) = R + jwL + 1/jwC")
+print("I = E/Z(f)       E = I * Z(f)       U1 = E       U2 = IR")
+print("H = U2/U1 = IR/I*Z(f) = R/Z(f)\n")
+print("АЧХ - модуль от H, когда ФЧХ - аргумент от H")
+print("АЧХ - |H|, ФЧХ - arg(H)\n\n")
+
+
+print("phi = -40")
+H = Complex_char_chain(freq_m40, R, L, C)
+print(f"АЧХ = |H| = {Module_complex(H)}")
+print(f"ФЧХ = arg(H) = {Argument_complex(H)}\n")
+
+print("phi = 40")
+H = Complex_char_chain(freq_p40, R, L, C)
+print(f"АЧХ = |H| = {Module_complex(H)}")
+print(f"ФЧХ = arg(H) = {Argument_complex(H)}")
+
+
+
