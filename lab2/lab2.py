@@ -112,7 +112,7 @@ freq = 2.9 * 10**3
 w = freq * m.pi * 2
 print("RL цепь")
 print(f"R_10 = {R} Om, пусть L = L_1 = {L} Гн")
-print("ФЧХ = fi(w) = arctg(wL/R) => fi(w) =",  m.atan((m.radians(w * L / R))))
+print("ФЧХ = fi(w) = arctg(wL/R) => fi(w) =",  m.atan(w * L / R))
 print("АЧХ = K(w) = R * sqr(1 + (wL/R)**2) => K(w) =", R * m.sqrt(1 + (w * L / R)**2))
 
 # RC
@@ -120,7 +120,7 @@ freq = 18.2 * 10**3
 w = freq * m.pi * 2
 print("RC цепь")
 print(f"R_10 = {R} Om, пусть C = C_1 = {C} F")
-print("ФЧХ = fi(w) = -arctg(wRC) => fi(w) =", (- m.atan(m.radians(w * R * C))))
+print("ФЧХ = fi(w) = -arctg(wRC) => fi(w) =", -m.atan(w * R * C))
 print("АЧХ = K(w) = 1 / sqr(1 + (wRC)**2) => K(w) =", 1 / m.sqrt(1 + (w * R * C)**2))
 
 # 4
